@@ -2,8 +2,7 @@ import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
 import React from 'react'
 import ReactPlayer from 'react-player'
-import { Box, Input, useColorMode, Image, Text, AspectRatio, GridItem, Grid } from '@chakra-ui/react'
-import { InputGroup, Button, ButtonGroup, Stack } from '@chakra-ui/react'
+import { Image, Text, AspectRatio, GridItem, Grid } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { AnimeDetailObject } from '../../components/AnimeDetailObject'
@@ -14,13 +13,12 @@ export default function AnimeDetail() {
   const [animeId, setAnimeId] = useState("");
   const [data, setData] = useState<AnimeDetailObject>();
   const [data2, setData2] = useState<CharacterList[]>([]);
-  const [Bool, setBool] = useState(false);
 
   useEffect(() => {
     setAnimeId(router.query.anime_id as string);
     if (animeId) {
       const obj = {animeId: { animeId } }
-      fetch('http://127.0.0.1:8000/main/detail', {
+      fetch('http://35.209.28.142/main/detail', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(obj.animeId)
@@ -35,11 +33,7 @@ export default function AnimeDetail() {
         console.log("ini data")
         console.log(data)
         setData2(list.character)
-        setBool(true);
       })
-        .catch(err => {
-  
-        })
     }
   }, [animeId, router.query])
   //getAnimeId
