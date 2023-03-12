@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'wsebe.urls'
+ROOT_URLCONF = 'lawbe.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'wsebe.wsgi.application'
+WSGI_APPLICATION = 'lawbe.wsgi.application'
 
 
 # Database

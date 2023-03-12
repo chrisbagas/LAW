@@ -6,7 +6,7 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 
 namespace = "kb"
 sparql = SPARQLWrapper(
-    "http://34.171.119.231:9999/blazegraph/namespace/" + namespace + "/sparql")
+    "http://localhost:9999/blazegraph/namespace/" + namespace + "/sparql")
 sparql.setReturnFormat(JSON)
 
 
