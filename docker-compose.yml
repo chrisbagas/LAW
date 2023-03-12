@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  django:
+    build: 
+      context: ./be
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./django:/django
+    expose:
+      - "8000"
+
+  nextjs:
+    build:
+      context: ./fe
+      dockerfile: Dockerfile
+    command: npm run start
+    volumes:
+      - ./nextjs:/react
+    ports:
+      - "3000:3000"
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:8080
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nextjs/out:/usr/share/nginx/html/nextjs
+    depends_on:
+      - django
+      - nextjs
