@@ -18,7 +18,7 @@ export default function AnimeDetail() {
     setAnimeId(router.query.anime_id as string);
     if (animeId) {
       const obj = {animeId: { animeId } }
-      fetch('http://35.209.28.142/main/detail', {
+      fetch('http://35.209.28.142:8000/main/detail', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(obj.animeId)

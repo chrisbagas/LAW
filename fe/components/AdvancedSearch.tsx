@@ -13,7 +13,7 @@ const AdvancedSearch = () => {
     var arrayGenre = new Array();
     const handleButtonAdvancedSearch = () => {
         console.log(JSON.stringify({genre: Object.keys(genres), themes:Object.keys(theme), demo:Object.keys(demos), type: type, score: score, start_year:start_year, start_season:start_season, status: status, sort_score:sort_score }))
-        fetch('https://wse-be.up.railway.app/main/advance', {
+        fetch('http://35.209.28.142:8000/main/advance', {
           method: 'POST',
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({genre: Object.keys(genres), themes:Object.keys(theme), demo:Object.keys(demos), type: type, score: score, start_year:start_year, start_season:start_season, status: status, sort_score:sort_score })
@@ -44,7 +44,7 @@ const AdvancedSearch = () => {
     let theme = {} as any
     let demos = {} as any
     useEffect(() => {
-      fetch('https://wse-be.up.railway.app/main/advance-data').then(res => {
+      fetch('http://35.209.28.142:8000/main/advance-data').then(res => {
         if(!res.ok){
           throw Error('FETCH GAGAL');
         }

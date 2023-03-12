@@ -12,7 +12,7 @@ export default function StudioDetail() {
         setStudioId(router.query.studio_id as string);
         if (studioId) {
             const obj = { studioId: { studioId } }
-            fetch('http://35.209.28.142/main/anime-studio', {
+            fetch('http://35.209.28.142:8000/main/anime-studio', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(obj.studioId)
